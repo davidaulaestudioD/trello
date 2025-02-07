@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlador de Tareas</title>
+    <link rel="stylesheet" href="css2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="pruebas.js"></script>
+</head>
+<body>
+    <button id="addTask">Agregar Tarea</button>
+    <div id="taskForm">
+        <input type="text" id="taskName" placeholder="Nombre de la tarea">
+        <textarea id="taskDescription" placeholder="Descripción"></textarea>
+        <input type="text" id="taskNotes" placeholder="Notas">
+        <input type="text" id="taskCollaborators" placeholder="Colaboradores">
+        <button id="submitTask">Crear Tarea</button>
+    </div>
+    <div class="board">
+        <div class="columna" id="idea">
+            <ul id = "listaIdea"><h3>Idea</h3>
+                <li class = "default">
+                    <div class="task">
+                        <strong>Tarea de prueba 1</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores:</small>
+                    </div>
+                </li>
+                <li class = "default">
+                    <div class="task">
+                        <strong>Tarea de prueba 2</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores: Ninguno</small>
+                    </div>
+                </li>
+                <li class = "default">
+                    <div class="task">
+                        <strong>Tarea de prueba 3</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores: Caro</small>
+                    </div>
+                </li>
+             </ul>
+        </div>
+        <div class="columna" id="idea">
+            <ul id = "listaToDo"><h3>To do</h3>
+                <li class = "default">
+                    <div class="task">
+                        <strong>To do 1</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores:</small>
+                    </div>
+                </li>
+                <li class = "default">
+                    <div class="task">
+                        <strong>To do 2</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores: Ninguno</small>
+                    </div>
+                </li>
+                <li class = "default">
+                    <div class="task">
+                        <strong>To do 3</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores: Caro</small>
+                    </div>
+                </li>
+             </ul>
+        </div>
+        <div class="columna" id="idea">
+            <ul id = "listaDoing"><h3>Doing</h3>
+                <li class = "default">
+                    <div class="task">
+                        <strong>Doing 1</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores:</small>
+                    </div>
+                </li>
+                <li class = "default">
+                    <div class="task">
+                        <strong>Doing 2</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores:</small>
+                    </div>
+                </li>
+             </ul>
+        </div>
+        <div class="columna" id="idea">
+            <ul id = "listaDone"><h3>Done</h3>
+                <li class = "default">
+                    <div class="task">
+                        <strong>Done 1</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores:</small>
+                    </div>
+                </li>
+                <li class = "default">
+                    <div class="task">
+                        <strong>Done 2</strong>
+                        <p>Tarjeta creada para probar</p>
+                        <small>Notas:</small>
+                        <br>
+                        <small>Colaboradores:</small>
+                    </div>
+                </li>
+             </ul>
+        </div>
+    </div>
+</body>
+</html>
