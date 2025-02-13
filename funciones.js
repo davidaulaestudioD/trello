@@ -1,84 +1,67 @@
-/*
 $(document).ready(function() {
-    // Mostrar el formulario cuando se presiona el botón de agregar tarea
-    $("#addTask").click(function() {
-        $("#taskForm").fadeIn();
-    });
+    function movimiento() {
+        $("#listaIdea, #listaToDo, #listaDoing, #listaDone").sortable({
+            connectWith: "#listaToDo, #listaDoing, #listaDone",
+            placeholder: "highlight",
+            opacity: 0.5,
+            tolerance: "pointer",
+            items: "> .task",
+            /*
+            stop: function(event, ui) {
+                actualizarEstadoTarjeta(ui.item);
+            }
+            */
+        }).disableSelection();
+    }
+    
+    //CARGAR TARJETAS DESDE EL SERVIDOR
+    function cargarTarjetas() {
+        $.ajax({
+            url: 'php/cargarTarjetas.php',
+            method: 'GET',
+            dataType: 'json',
+            success: function(tarjetas) {
 
-    // Manejar el envío del formulario
-    $("#submitTask").click(function() {
-        let taskName = $("#taskName").val();
-        let taskDescription = $("#taskDescription").val();
-        let taskNotes = $("#taskNotes").val();
-        let taskCollaborators = $("#taskCollaborators").val();
-        
-        if (taskName.trim() !== "") {
-            let task = $("<div class='task'></div>").append(
-                `<strong>${taskName}</strong>
-                <p>${taskDescription}</p>
-                <small>Notas: ${taskNotes}</small>
-                <br>
-                <small>Colaboradores: ${taskCollaborators}</small>`
-            );
-            
-            $("#idea").append(task);
-            
-            // Limpiar el formulario y ocultarlo
-            $("#taskForm").fadeOut();
-            $("#taskForm input, #taskForm textarea").val("");
-        }
-    });
-});
-*/
-$(document).ready(function() {
-    // Hacer que las columnas sean zonas donde se puedan soltar tareas
-    $(".column").sortable({
-        connectWith: ".column",
-        placeholder: "task-placeholder",
-        receive: function(event, ui) {
-            // Se podría agregar lógica adicional aquí si es necesario
-        }
-    }).disableSelection();
+                //$("#listaIdea, #listaToDo, #listaDoing, #listaDone").empty();
+                tarjetas.forEach(tarjeta => {
+                    let tarjetaHTML = `
+                        <li class="task">
+                            <strong>${tarjeta.tarea}</strong>
+                            <p>${tarjeta.descripcion}</p>
+                            <small><b>Colaboradores:</b> ${tarjeta.colaboradores.join(", ") || "Ninguno"}</small>
+                        </li>
+                    `;
+    
+                    switch (tarjeta.estado) {
+                        case "Idea":
+                            $("#listaIdea").append(tarjetaHTML);
+                            break;
+                        case "To do":
+                            $("#listaToDo").append(tarjetaHTML);
+                            break;
+                        case "Doing":
+                            $("#listaDoing").append(tarjetaHTML);
+                            break;
+                        case "Done":
+                            $("#listaDone").append(tarjetaHTML);
+                            break;
+                    }
+                });
 
-    // Mostrar el formulario cuando se presiona el botón de agregar tarea
-    $("#addTask").click(function() {
-        $("#taskForm").fadeIn();
-    });
+                movimiento();
+                console.log("hola");
+               
+            },
+            error: function() {
+                $("#error-message").text("Error al cargar las tarjetas").show();
+                console.log("no se recivio respuesta");
+                
+            }
+        });
+    }
 
-    // Manejar el envío del formulario
-    $("#submitTask").click(function() {
-        let taskName = $("#taskName").val();
-        let taskDescription = $("#taskDescription").val();
-        let taskNotes = $("#taskNotes").val();
-        let taskCollaborators = $("#taskCollaborators").val();
-        
-        if (taskName.trim() !== "") {
-            let task = $("<div class='task'></div>").append(
-                `<strong>${taskName}</strong>
-                <p>${taskDescription}</p>
-                <small>Notas: ${taskNotes}</small>
-                <br>
-                <small>Colaboradores: ${taskCollaborators}</small>`
-            );
-            
-            $("#idea").append(task);
-            
-            // Hacer que la nueva tarea sea arrastrable
-            $(".task").draggable({
-                revert: "invalid",
-                opacity: 0.50,
-                zIndex: 100
-            });
+    
 
-            // Limpiar el formulario y ocultarlo
-            $("#taskForm").fadeOut();
-            $("#taskForm input, #taskForm textarea").val("");
-        }
-    });
-
-    // Hacer que las tareas sean arrastrables
-    $(".task").draggable({
-        revert: "invalid",
-        zIndex: 100
-    });
+    // Cargar tarjetas al inicio
+    cargarTarjetas();
 });

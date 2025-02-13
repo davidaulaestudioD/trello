@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlador de Tareas</title>
+    <link rel="stylesheet" href="css/css2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="funciones.js"></script>
+</head>
+<body>
+    <button id="addTask">Agregar Tarea</button>
+    <div id="error-message" style="color: red; display: none;"></div>
+
+    <div class="board">
+        <div class="columna">
+            <h3>Idea</h3>
+            <ul id="listaIdea">
+            </ul>
+        </div>
+        <div class="columna">
+            <h3>To do</h3>
+            <ul id="listaToDo">
+                <div style="padding: 1px;"></div>
+            </ul>
+        </div>
+        <div class="columna">
+            <h3>Doing</h3>
+            <ul id="listaDoing">
+                <div style="padding: 1px;"></div>
+            </ul>
+        </div>
+        <div class="columna">
+            <h3>Done</h3>
+            <ul id="listaDone">
+                <div style="padding: 1px;"></div>
+                
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>     

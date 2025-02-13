@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+body {
+    background-color: #862daf;
+    background-image: linear-gradient(62deg, #bc5be9 50%, #b12c9b 98%);
+    height: 97.9vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Permanent Marker';
+}
+
+.formulario-login {
+    background-color: #330449a8;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+}
+
+.sub {
+    margin-bottom: 8%;
+}
+.campos {
+    margin-bottom: 5%;
+}
+
+.boton-login {
+    color: wheat;
+    background-color: #35004e;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    width: 30%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    
+
+}
+.boton-login:hover {
+    background-color: #430a5e;
+
+}
+
+
